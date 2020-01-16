@@ -3,12 +3,13 @@
 #define _THREAD_POOL
 
 #include <cstdint>
-#include <thread>
 #include <future>
 #include <functional>
 #include <memory>
 
-using namespace std;
+using std::shared_future;
+using std::shared_ptr;
+using std::function;
 
 template<typename TThreadPoolImpl>
 class thread_pool : public TThreadPoolImpl
