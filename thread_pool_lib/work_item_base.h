@@ -6,7 +6,10 @@
 
 #include "cancelation_token.h"
 
-using namespace std;
+using std::shared_future;
+using std::function;
+using std::forward;
+using std::promise;
 
 class work_item_base
 {

@@ -5,7 +5,11 @@
 #include <exception>
 #include <mutex>
 
-using namespace std;
+using std::lock_guard;
+using std::mutex;
+using std::exception;
+using std::shared_ptr;
+using std::make_shared;
 
 class cancelation_token_source;
 

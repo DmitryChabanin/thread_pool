@@ -12,7 +12,15 @@
 #include "work_item_base.h"
 #include "cancelation_token.h"
 
-using namespace std;
+using std::shared_future;
+using std::shared_ptr;
+using std::function;
+using std::unique_lock;
+using std::condition_variable;
+using std::promise;
+using std::vector;
+using std::queue;
+using std::thread;
 
 class thread_pool_default_impl
 {
