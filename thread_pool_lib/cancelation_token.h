@@ -20,22 +20,22 @@ class cancel_exception : public exception
 class cancelation_token
 {
 public:
-	cancelation_token() : _canceled{ false }
+	cancelation_token() : _iscanceled{ false }
 	{
 	}
 
-	bool canceled()
+	bool is_canceled()
 	{
 		lock_guard<mutex> lock(_sync_obj);
 
-		return _canceled;
+		return _iscanceled;
 	}
 
 	void throw_if_canceled()
 	{
 		lock_guard<mutex> lock(_sync_obj);
 
-		if (_canceled)
+		if (_iscanceled)
 		{
 			throw cancel_exception();
 		}
@@ -47,12 +47,12 @@ protected:
 	{
 		lock_guard<mutex> lock(_sync_obj);
 
-		_canceled = true;
+		_iscanceled = true;
 	}
 
 private:
 
-	bool _canceled;
+	bool _iscanceled;
 
 	mutex _sync_obj;
 
